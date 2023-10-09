@@ -7,12 +7,12 @@ function setupRouteHandler(routeId) {
     const routeElement = document.querySelector(selector);
     
     async function handleRouteData() {
-        greetingMessageElement.textContent = await invoke("route_system", { data: routeData });
+        greetingMessageElement.innerHTML = await invoke("route_system", { data: routeData });
     }
     
     window.addEventListener("DOMContentLoaded", () => {
         routeData = routeElement.getAttribute('data-url');
-        greetingMessageElement = document.querySelector("#greet-msg");
+        greetingMessageElement = document.querySelector("#content");
         
         routeElement.addEventListener("click", (e) => {
             e.preventDefault();
